@@ -4,6 +4,14 @@ const app=express();
 
 const server= require("http").createServer(app)
 
+
+app.use(express.static('public'));
+
+
+app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/public/index.html');
+  });
+
 const io=socket(server,{
     cors:{
         origin: "*",
